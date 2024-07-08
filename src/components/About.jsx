@@ -59,7 +59,7 @@ const About = () => {
           animate={controls}
           className="w-full lg:w-1/2 flex justify-center lg:justify-start"
         >
-          <p className="my-2 max-w-xl py-6 font-light tracking-tight text-sm lg:text-lg">Hey there, I'm Belicks, a software engineer driven by a passion for building powerful web applications. I'm 24 years old and proud to hold a BEng (Hons) in Software Engineering from London Metropolitan University, along with an HND in Software Engineering from Pearson College London.
+          <p className="my-2 max-w-xl py-6 font-light tracking-tight text-sm lg:text-lg lg:text-start text-justify">Hey there, I'm Belicks, a software engineer driven by a passion for building powerful web applications. I'm 24 years old and proud to hold a BEng (Hons) in Software Engineering from London Metropolitan University, along with an HND in Software Engineering from Pearson College London.
 
 My journey into software development has been exciting. I've immersed myself in JavaScript, HTML, CSS, and frameworks such as Node.js, React.js, and Next.js, honing my skills to create seamless user experiences. Beyond coding, I'm adept at manual and foundational automated testing, ensuring the quality and reliability of every project I work on.<br/><br/>
 

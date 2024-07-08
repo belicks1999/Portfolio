@@ -53,7 +53,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="my-2 max-w-xl py-4 lg:py-6 font-light tracking-tight text-sm lg:text-xl"
+              className="my-2 text-justify max-w-xl py-4 lg:py-6 font-light tracking-tight text-sm lg:text-xl lg:text-start"
             >
               {HERO_CONTENT}
             </motion.p>
