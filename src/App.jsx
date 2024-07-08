@@ -6,6 +6,7 @@ import Technology from './components/Technology';
 import Project from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Download from './components/Download';
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
         <Technology/>
         <Project/>
         <Contact/>
+        <Download/>
         <Footer/>
         
         

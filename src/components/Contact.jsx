@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -15,17 +17,26 @@ const Contact = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const handleReset = () => {
+        setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: ""
+        });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Replace with your actual EmailJS service ID, template ID, and user ID
-        const serviceID = 'your_service_id';
-        const templateID = 'your_template_id';
-        const userID = 'your_user_id';
+        const serviceID = 'service_8b1sg78';
+        const templateID = 'template_2pmg0cs';
+        const userID = 'WuPKtBJmfMji2SlcB';
 
         try {
             await emailjs.send(serviceID, templateID, formData, userID);
-            alert("Your message has been sent successfully!");
+            toast.success("Email sent successfully");
             setFormData({
                 name: "",
                 email: "",
@@ -34,7 +45,7 @@ const Contact = () => {
             });
         } catch (error) {
             console.error("Error sending email: ", error);
-            alert("Failed to send the message. Please try again later.");
+            toast.error("Failed to send the message. Please try again later.");
         }
     };
 
@@ -51,6 +62,7 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+            <ToastContainer />
             <motion.h1
                 ref={h1Ref}
                 initial={{ opacity: 0, y: 50 }}
@@ -110,7 +122,7 @@ const Contact = () => {
 
                             <input
                                 className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="reset" />
+                                type="reset"  onClick={handleReset}/>
                         </div>
                     </form>
                 </motion.div>
