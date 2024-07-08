@@ -56,11 +56,11 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={h1InView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6 }}
-                className="my-20 text-center text-4xl"
+                className="my-20 text-center text-3xl lg:text-4xl"
             >
                 Contact
             </motion.h1>
-            <div ref={formRef} className="relative py-3 sm:max-w-xl sm:mx-auto">
+            <div ref={formRef} className="relative py-3 mb-20 sm:max-w-xl sm:mx-auto">
                 <div className={`absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl ${formInView ? 'animate__animated animate__fadeInUp' : 'opacity-0'}`}></div>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}

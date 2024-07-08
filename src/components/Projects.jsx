@@ -35,13 +35,24 @@ const Project = () => {
         const fetchProjects = async () => {
             try {
                 const GITHUB_USERNAME = 'belicks1999';
-                const response = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
+                const GITHUB_TOKEN = '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'; 
+
+                const response = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, {
+                    headers: {
+                        Authorization: `token ${GITHUB_TOKEN}`,
+                    },
+                });
+                console.log(response);
 
                 // Fetch languages for each project
                 const projectsData = response.data;
                 const projectsWithLanguages = await Promise.all(
                     projectsData.map(async (project) => {
-                        const languagesResponse = await axios.get(project.languages_url);
+                        const languagesResponse = await axios.get(project.languages_url, {
+                            headers: {
+                                Authorization: `token ${GITHUB_TOKEN}`,
+                            },
+                        });
                         const languages = Object.keys(languagesResponse.data);
                         return { ...project, languages };
                     })
@@ -108,7 +119,7 @@ const Project = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                 transition={{ duration: 0.6 }}
-                className="my-24 text-center text-4xl"
+                className="my-24 text-center text-3xl lg:text-4xl"
             >
                 Projects
             </motion.h1>
@@ -124,22 +135,24 @@ const Project = () => {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className="px-2 lg:px-4"
                         >
-                            <div className="shadow-lg rounded-lg overflow-hidden h-96 lg:h-96 relative">
-                                <div className="p-4 lg:p-6 h-full flex flex-col justify-between bg-gray-800 bg-opacity-50 backdrop-blur-lg">
-                                    <div>
-                                        <h2 className="text-white text-center text-xl lg:text-3xl font-bold mb-4 lg:mb-6">{project.name}</h2>
-                                        <p className="text-gray-300 font-tight text-sm lg:text-base">{project.description}</p>
-                                    </div>
-                                    <div className="text-gray-400 mt-2 absolute bottom-16 left-6 mb-3">
-                                        <p>Languages: {project.languages.join(', ')}</p>
-                                    </div>
-                                    <div className="text-center mt-4 lg:mt-6">
-                                        <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="block">
-                                            <button className="bg-blue-800 text-white rounded-lg py-2 px-4">GitHub</button>
-                                        </a>
+                            <div className="shadow-lg rounded-lg overflow-hidden h-96 w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg"> 
+                                    <div className="p-4 lg:p-6 h-full flex flex-col justify-between">
+                                        <div>
+                                            <h2 className="text-white text-center text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{project.name}</h2>
+                                            <p className="text-gray-300 text-center text-sm lg:text-base mb-4 lg:mb-4">{project.description}</p>
+                                        </div>
+                                        <div className="flex-grow"></div>
+                                        <div className="text-center mt-4 lg:mt-3">
+                                            <div className="text-gray-400 text-center mb-4 lg:mb-6">
+                                                <p>Languages: {project.languages.join(', ')}</p>
+                                            </div>
+                                            <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="block">
+                                                <button className="bg-blue-800 text-white rounded-lg py-2 px-4 transition-all duration-300 hover:bg-blue-700">GitHub</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
                         </motion.div>
                     ))}
                 </Slider>

@@ -37,7 +37,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="pb-4 lg:pb-8 text-5xl lg:text-7xl font-thin tracking-light"
+              className="pb-4 lg:pb-8 text-3xl lg:text-7xl font-thin tracking-light"
             >
               Belicks AM
             </motion.h1>
@@ -45,7 +45,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl lg:text-4xl tracking-tight text-transparent"
+              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl lg:text-4xl tracking-tight text-transparent "
             >
               Full Stack Developer
             </motion.span>
@@ -53,7 +53,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="my-2 max-w-xl py-4 lg:py-6 font-light tracking-tight"
+              className="my-2 max-w-xl py-4 lg:py-6 font-light tracking-tight text-sm lg:text-xl"
             >
               {HERO_CONTENT}
             </motion.p>

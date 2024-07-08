@@ -39,7 +39,7 @@ const Technology = () => {
   return (
     <div ref={ref} className="border-b border-neutral-800 py-4 px-4 sm:px-24">
       <motion.h1
-        className="my-24 text-center text-4xl"
+        className="my-24 text-center text-3xl lg:text-4xl"
         variants={headerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

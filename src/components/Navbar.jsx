@@ -15,11 +15,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="mb-20 lg:mb-10 flex items-center justify-between pt-12 py-6 px-2">
-      <div className="flex items-center">
-        <img className="w-32" src={logo} alt="Logo" />
+    <nav className="mb-20 lg:mb-10 flex flex-col lg:flex-row items-center justify-between pt-12 py-6 px-2">
+      <div className="flex items-center mb-4 lg:mb-0">
+        <img className="w-24 lg:w-32" src={logo} alt="Logo" />
       </div>
-      <div className="flex items-center gap-4 text-3xl">
+      <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4 text-2xl lg:text-3xl">
         <motion.a
           href="https://www.linkedin.com/in/belicks-maxwell-751b40251"
           target="_blank"
