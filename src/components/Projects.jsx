@@ -131,7 +131,7 @@ const Project = () => {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className="px-2 lg:px-4"
                         >
-                            <div className="shadow-lg rounded-lg overflow-hidden h-full w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg"> 
+                            <div className="shadow-lg rounded-lg overflow-hidden h-full pb-16 w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg"> 
                                     <div className="p-4 lg:p-6 h-full flex flex-col justify-between">
                                         <div>
                                             <h2 className="text-white text-center text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{project.name}</h2>
