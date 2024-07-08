@@ -6,6 +6,8 @@ import { useInView } from 'react-intersection-observer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+
+
 const Project = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -35,7 +37,7 @@ const Project = () => {
         const fetchProjects = async () => {
             try {
                 const GITHUB_USERNAME = 'belicks1999';
-                const GITHUB_TOKEN = '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'; 
+                const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
                 const response = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, {
                     headers: {
