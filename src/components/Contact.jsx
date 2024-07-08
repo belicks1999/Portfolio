@@ -87,7 +87,7 @@ const Contact = () => {
                             transition={{ duration: 0.6 }}
                             className="text-3xl"
                         >
-                            Contact Us!
+                            Contact Me!
                         </motion.h1>
                         <p className="text-gray-300">
                             Fill up the form below to send me a email.
