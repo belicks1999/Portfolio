@@ -5,6 +5,7 @@ import About from './components/About';
 import Technology from './components/Technology';
 import Project from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
         <Technology/>
         <Project/>
         <Contact/>
+        <Footer/>
         
         
       </div>
