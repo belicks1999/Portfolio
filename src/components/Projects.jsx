@@ -37,14 +37,10 @@ const Project = () => {
         const fetchProjects = async () => {
             try {
                 const GITHUB_USERNAME = 'belicks1999';
-                const API_KEY = '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'; // Replace with your GitHub API key
+                
 
                 // Fetch repositories for the GitHub user
-                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, {
-                    headers: {
-                        Authorization: `Bearer ${API_KEY}`
-                    }
-                });
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch repositories');
@@ -55,11 +51,7 @@ const Project = () => {
                 // Fetch languages for each project
                 const projectsWithLanguages = await Promise.all(
                     projectsData.map(async (project) => {
-                        const languagesResponse = await axios.get(project.languages_url, {
-                            headers: {
-                                Authorization: `Bearer ${API_KEY}`
-                            }
-                        });
+                        const languagesResponse = await axios.get(project.languages_url);
                         const languages = Object.keys(languagesResponse.data);
                         return { ...project, languages };
                     })
