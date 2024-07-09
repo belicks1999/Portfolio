@@ -143,7 +143,7 @@ const Project = () => {
                                                 <p>Languages: {project.languages.join(', ')}</p>
                                             </div>
                                             <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="block">
-                                                <button className="bg-blue-800 text-white rounded-lg py-2 px-4 transition-all duration-300 hover:bg-blue-700">GitHub</button>
+                                                <button className= "bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg py-2 px-4 transition-all duration-300 ">GitHub</button>
                                             </a>
                                         </div>
                                     </div>
