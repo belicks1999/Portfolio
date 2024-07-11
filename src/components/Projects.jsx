@@ -142,7 +142,7 @@ const Project = () => {
                   <div  className="shadow-lg rounded-lg overflow-hidden h-[540px] pb-16 w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg">
                     <div className="p-4 lg:p-6 h-full flex flex-col justify-between">
                       <div>
-                        <h2 className="text-white text-center text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{project.name}</h2>
+                        <h2 className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 text-center text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{project.name}</h2>
                         <p className="text-gray-300 text-center text-sm lg:text-base mb-12 lg:mb-4">{project.description}</p>
                       </div>
                       <div className="flex-grow"></div>
