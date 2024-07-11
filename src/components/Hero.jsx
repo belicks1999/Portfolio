@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { HERO_CONTENT } from "../constants/index.js";
 import profile from "../assets/profile1.png";
 import { motion, useAnimation } from 'framer-motion';
@@ -8,50 +8,54 @@ const Hero = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView();
   const [typedText, setTypedText] = useState("");
-  const words = ["Full Stack Developer", "Web Developer", "Software Engineer"]; // Words to cycle through
-  let i = 0; // Index for words array
-  let j = 0; // Index for characters in current word
-  let currentWord = words[i]; // Current word being typed
-  let isDeleting = false; // Flag to track if deleting characters
+  const words = useRef(["Full Stack Developer", "Web Developer", "Software Engineer"]); // Words to cycle through
+  const currentWordIndex = useRef(0); // Index for words array
+  const charIndex = useRef(0); // Index for characters in current word
+  const isDeleting = useRef(false); // Flag to track if deleting characters
 
   useEffect(() => {
     const type = () => {
-      currentWord = words[i];
-      if (isDeleting) {
-        setTypedText(currentWord.substring(0, j - 1));
-        j--;
-        if (j === 0) {
-          isDeleting = false;
-          i++;
-          if (i === words.length) {
-            i = 0;
+      const currentWord = words.current[currentWordIndex.current];
+      let updatedTypedText = typedText;
+
+      if (isDeleting.current) {
+        updatedTypedText = currentWord.substring(0, charIndex.current - 1);
+        charIndex.current--;
+        if (charIndex.current === 0) {
+          isDeleting.current = false;
+          currentWordIndex.current++;
+          if (currentWordIndex.current === words.current.length) {
+            currentWordIndex.current = 0;
           }
         }
       } else {
-        setTypedText(currentWord.substring(0, j + 1));
-        j++;
-        if (j === currentWord.length) {
-          isDeleting = true;
+        updatedTypedText = currentWord.substring(0, charIndex.current + 1);
+        charIndex.current++;
+        if (charIndex.current === currentWord.length) {
+          isDeleting.current = true;
         }
       }
-      setTimeout(type, 150);
+
+      setTypedText(updatedTypedText);
     };
 
+    const handleTypeEffect = setInterval(type, 150);
+    return () => clearInterval(handleTypeEffect);
+  }, [typedText]);
+
+  useEffect(() => {
     if (inView) {
       controls.start({
         opacity: 1,
         y: 0,
         transition: { duration: 0.8 },
       });
-      type(); // Start typing effect when component is in view
     } else {
       controls.start({
         opacity: 0,
         y: -50,
       });
     }
-
-    return () => clearTimeout(type);
   }, [controls, inView]);
 
   return (

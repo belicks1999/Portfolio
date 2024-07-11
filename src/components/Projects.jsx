@@ -139,16 +139,16 @@ const Project = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="px-2 lg:px-4 relative" // Add relative positioning here
                 >
-                  <div className="shadow-lg rounded-lg overflow-hidden h-full pb-16 w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg">
+                  <div  className="shadow-lg rounded-lg overflow-hidden h-[540px] pb-16 w-full lg:h-96 relative bg-gray-800 bg-opacity-50 backdrop-blur-lg">
                     <div className="p-4 lg:p-6 h-full flex flex-col justify-between">
                       <div>
                         <h2 className="text-white text-center text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{project.name}</h2>
-                        <p className="text-gray-300 text-center text-sm lg:text-base mb-4 lg:mb-4">{project.description}</p>
+                        <p className="text-gray-300 text-center text-sm lg:text-base mb-12 lg:mb-4">{project.description}</p>
                       </div>
                       <div className="flex-grow"></div>
-                      <div className="absolute bottom-4 left-0 right-0"> {/* Positioning for fixed bottom */}
-                        <div className="text-center mb-4 lg:mb-6">
-                          <p className="text-gray-400">Languages: {project.languages.join(', ')}</p>
+                      <div className="absolute bottom-4 left-0 right-0 "> {/* Positioning for fixed bottom */}
+                        <div className="text-center sm:mt-10 mb-4 lg:mb-6">
+                          <p className="text-gray-400 text-sm lg:text-lg">Languages: {project.languages.join(', ')}</p>
                         </div>
                         <div className="text-center">
                           <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="block">
