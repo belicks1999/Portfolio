@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        ping: 'ping 1.5s ease-in-out 1 4.5s',
+        spin: 'spin 5s linear infinite',
+      },
+    },
   },
   plugins: [],
 }
