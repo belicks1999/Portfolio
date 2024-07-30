@@ -21,7 +21,7 @@ const Navbar = () => {
       </div>
       <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4 text-2xl lg:text-3xl">
         <motion.a
-          href="https://www.linkedin.com/in/belicks-maxwell-751b40251"
+          href="https://www.linkedin.com/in/belicks-am-751b40251/"
           target="_blank"
           rel="noopener noreferrer"
           whileHover="hover"
