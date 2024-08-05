@@ -150,9 +150,14 @@ const Project = () => {
                         <div className="text-center sm:mt-10 mb-4 lg:mb-6">
                           <p className="text-gray-400 text-sm lg:text-lg">Languages: {project.languages.join(', ')}</p>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center flex flex-col ">
                           <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="block">
-                            <button className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg py-2 px-4 transition-all duration-300 ">GitHub</button>
+                            <button className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg py-2 px-4 transition-all duration-300 lg:w-28 ">GitHub</button>
+                            {project.homepage && (
+                          <a href={project.homepage} target="_blank" rel="noopener noreferrer" className="block mt-2">
+                            <button className="bg-green-600 hover:bg-green-700 text-white rounded-lg py-2 px-4 transition-all duration-300 lg:w-28">Live Demo</button>
+                      </a>
+                    )}
                           </a>
                         </div>
                       </div>
