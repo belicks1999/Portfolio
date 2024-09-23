@@ -126,7 +126,7 @@ const Project = () => {
           {error && <p className="text-center text-red-500">{error}</p>}
           {!loading && !error && (
             <Slider {...settings}>
-              {projects.map((project, index) => (
+              {projects.filter((project)=>project.description).map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
